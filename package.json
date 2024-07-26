@@ -1,0 +1,34 @@
+{
+  "name": "reactlearning",
+  "version": "1.0.0",
+  "description": "This is react learning project.",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pallavigupta2/NamasteReact.git"
+  },
+  "author": "Pallavi Gupta",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pallavigupta2/NamasteReact/issues"
+  },
+  "homepage": "https://github.com/pallavigupta2/NamasteReact#readme",
+  "devDependencies": {
+    "parcel": "^2.12.0",
+    "postcss": "^8.4.40",
+    "process": "^0.11.10",
+    "tailwindcss": "^3.4.7"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.24.1"
+  },
+  "browsersList": [
+    "Last 2 version"
+  ]
+}
