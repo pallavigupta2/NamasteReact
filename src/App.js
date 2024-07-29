@@ -1,5 +1,5 @@
 
-import React, { lazy, Suspense } from 'react';
+import React, { lazy, Suspense, useContext, useEffect, useState } from 'react';
 import ReactDOM from 'react-dom/client'
 import Header from './components/Header';
 import Body from './components/Body';
@@ -9,14 +9,25 @@ import Contact from './components/Contact';
 import ErrorPage from './components/ErrorPage';
 import RestrauntMenu from './components/RestrauntMenu';
 import Shimmer from './components/Shimmer';
+import UserContext from './utils/UserContext';
  
 const Grosary = lazy(()=>import('./components/Grosary'));
 
 const AppLayout = ()=>{
-    return <div className='app'>
+    const [userName,setUserName]= useState()
+    useEffect(()=>{
+        // API calls and set loggedin user data
+        const data = {
+            name:'Pallavi Gupta'
+        }
+        setUserName(data.name)
+    },[])
+    return <UserContext.Provider value={{loggedInUser:userName,setUserName}}>
+    <div className='app'>
         <Header/>
        <Outlet/>
     </div>
+    </UserContext.Provider>
 }
 const appRouter = createBrowserRouter([
     {

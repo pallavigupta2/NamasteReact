@@ -18,4 +18,15 @@ const RestrauntCards=(props)=>{
     )
 }
 
+export const EnhancedRestrauntCards = (RestrauntCards)=>{
+    return (props)=>{
+        return(
+            <div>
+                <label className="bg-green-400 absolute p-1 rounded-md text-white m-3">Veg!</label>
+                <RestrauntCards {...props}/>
+            </div>
+        )
+    }
+}
+
 export default RestrauntCards;
