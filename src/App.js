@@ -10,6 +10,9 @@ import ErrorPage from './components/ErrorPage';
 import RestrauntMenu from './components/RestrauntMenu';
 import Shimmer from './components/Shimmer';
 import UserContext from './utils/UserContext';
+import { Provider } from 'react-redux';
+import AppStore from './utils/AppStore';
+import Cart from './components/Cart';
  
 const Grosary = lazy(()=>import('./components/Grosary'));
 
@@ -22,12 +25,14 @@ const AppLayout = ()=>{
         }
         setUserName(data.name)
     },[])
-    return <UserContext.Provider value={{loggedInUser:userName,setUserName}}>
+    return  <Provider store={AppStore}>
+    <UserContext.Provider value={{loggedInUser:userName,setUserName}}>
     <div className='app'>
         <Header/>
        <Outlet/>
     </div>
     </UserContext.Provider>
+    </Provider>
 }
 const appRouter = createBrowserRouter([
     {
@@ -53,6 +58,10 @@ const appRouter = createBrowserRouter([
             {
                 path:'/restraunt/:id',
                 element:<RestrauntMenu/>
+            },
+            {
+                path:'/cart',
+                element:<Cart/>
             }
         ],
         errorElement:<ErrorPage/>

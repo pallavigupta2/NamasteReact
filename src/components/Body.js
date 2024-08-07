@@ -23,7 +23,7 @@ const Body = () => {
       "https://www.swiggy.com/dapi/restaurants/list/v5?lat=22.71700&lng=75.83370&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING"
     );
     const json = await data.json();
-    console.log("pallavi", json);
+    //console.log("pallavi", json);
     setListOfRestraunts(
       json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     );
@@ -35,10 +35,12 @@ const Body = () => {
     const filteredList = listOfRestraunt.filter(
       (res) => res.info.avgRating > 4.3
     );
-    setListOfRestraunts(filteredList);
+    setfilteredRestraunt(filteredList);
   };
-  if (onlineStatus === false)
+  if (onlineStatus === false){
     return <h2>Hay, It seems you'r offline. Please check your internet!!</h2>;
+  }
+  //console.log('listOfRestraunt',listOfRestraunt)
   return listOfRestraunt.length === 0 ? (
     <Shimmer />
   ) : (
@@ -47,6 +49,7 @@ const Body = () => {
         <div className="p-[10px]">
           <input
             className="border border-solid border-black w-[400px] rounded-md"
+            data-testid="search"
             type="text"
             value={text}
             onChange={(e) => {
@@ -84,7 +87,7 @@ const Body = () => {
         </div>
       </div>
       <div className="flex flex-wrap">
-        {filteredRestraunt.map((item) => {
+        {filteredRestraunt?.map((item) => {
          return item?.info?.veg ? (
             <RestrauntCardsEnhanced key={item.info.id} resData={item} />
           ) : (

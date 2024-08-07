@@ -21,10 +21,10 @@ const RestrauntMenu = () => {
   const { itemCards } =
     resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card;
   //console.log('pallavi',resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards[2]?.card?.card?.itemCards);
-  console.log(
-    "pallavi",
-    resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards
-  );
+  //console.log(
+  //   "pallavi",
+  //   resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards
+  // );
   const categories =
     resInfo?.cards[4]?.groupedCard?.cardGroupMap?.REGULAR?.cards.filter(
       (c) =>
